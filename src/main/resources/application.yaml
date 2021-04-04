@@ -1,0 +1,29 @@
+logging:
+    level:
+        root: INFO
+management:
+    endpoint:
+        health:
+            probes:
+                enabled: true
+    health:
+        livenessState:
+            enabled: true
+        readinessState:
+            enabled: true
+oracle:
+    url: jdbc:oracle:thin:@localhost:1521/orclpdb1
+    username: kafka
+    password: kafka
+kafka:
+    bootstrap-servers: localhost:9092
+    acks: all
+    retries: 0
+    linger-ms: 1
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+adapter:
+    numberOfEventsReadInOneLoop: 50
+    # in ms
+    sleepTimeWhenEventQueueHasEvents: 0
+    sleepTimeWhenEventQueueIsEmpty: 1000  
