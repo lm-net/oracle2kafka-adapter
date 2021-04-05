@@ -16,14 +16,20 @@ oracle:
     username: kafka
     password: kafka
 kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: http://localhost:9092
+    schema-registry-url: http://localhost:9092
     acks: all
     retries: 0
     linger-ms: 1
     key-serializer: org.apache.kafka.common.serialization.StringSerializer
-    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer:
+        json: org.apache.kafka.common.serialization.StringSerializer
+        avro: org.apache.kafka.common.serialization.StringSerializer
+        #io.confluent.kafka.serializers.KafkaAvroSerializer
 adapter:
     numberOfEventsReadInOneLoop: 50
     # in ms
     sleepTimeWhenEventQueueHasEvents: 0
-    sleepTimeWhenEventQueueIsEmpty: 1000  
+    sleepTimeWhenEventQueueIsEmpty: 1000
+    # AVRO schema generic
+    avroSchemaGeneric: net.matasek.oracle2kafkaadapter.model.avro.Generic

@@ -3,8 +3,7 @@ package net.matasek.oracle2kafkaadapter.model;
 public class Event {
 
     private Long idEvent;
-    private String topic;
-    private String schemaName;
+    private Long idTopic;
     private String key;
     private String message;
 
@@ -23,31 +22,17 @@ public class Event {
     }
 
     /**
-     * @return the topic
+     * @return the idTopic
      */
-    public String getTopic() {
-        return topic;
+    public Long getIdTopic() {
+        return idTopic;
     }
 
     /**
-     * @param topic the topic to set
+     * @param idTopic the idTopic to set
      */
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
-
-    /**
-     * @return the schemaName
-     */
-    public String getSchemaName() {
-        return schemaName;
-    }
-
-    /**
-     * @param schemaName the schemaName to set
-     */
-    public void setSchemaName(String schemaName) {
-        this.schemaName = schemaName;
+    public void setIdTopic(Long idTopic) {
+        this.idTopic = idTopic;
     }
 
     /**
@@ -80,6 +65,7 @@ public class Event {
 
     @Override
     public String toString() {
-        return "idEvent: " + idEvent + "\ntopic: " + topic + "\nschemaName: " + schemaName + "\nkey: " + key + "\nmessage: " + message;
+        return "idEvent: " + idEvent + "\nidTopic: " + idTopic + "\nkey: " + key + "\nmessage: " + message;
     }
+
 }

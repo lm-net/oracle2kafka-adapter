@@ -1,0 +1,10 @@
+{
+   "type" : "record",
+   "namespace" : "net.matasek.oracle2kafkaadapter.model.avro",
+   "name" : "ExampleAvro",
+   "fields" : [
+      { "name" : "name" , "type" : "string" },
+      { "name" : "surname" , "type" : "string" },
+      { "name" : "age" , "type" : ["int", "null"] }
+   ]
+}
